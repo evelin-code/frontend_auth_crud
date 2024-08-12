@@ -152,11 +152,13 @@ const Panel = () => {
       {selectedOption === 'employees' && employees.length > 0 && !loading && (
         <div className="employees-container">
           <h3>Empleados</h3>
-          <div className="create-button-container">
-            <button className="create-button" onClick={() => setIsModalEmployeeOpen(true)}>
-              Crear Empleado
-            </button>
-          </div>
+          {rolId !== '1' && (
+            <div className="create-button-container">
+              <button className="create-button" onClick={() => setIsModalEmployeeOpen(true)}>
+                Crear Empleado
+              </button>
+            </div>
+          )}
           <table>
             <thead>
               <tr>
@@ -182,11 +184,13 @@ const Panel = () => {
       {selectedOption === 'requests' && requests.length > 0 && !loading && (
         <div className="requests-container">
           <h3>Solicitudes</h3>
-          <div className="create-button-container">
-            <button className="create-button" onClick={() => setIsModalRequestOpen(true)}>
-              Crear Solicitud
-            </button>
-          </div>
+          {rolId !== '1' && (
+            <div className="create-button-container">
+              <button className="create-button" onClick={() => setIsModalRequestOpen(true)}>
+                Crear Solicitud
+              </button>
+            </div>
+          )}
           <table>
             <thead>
               <tr>
@@ -195,7 +199,7 @@ const Panel = () => {
                 <th>Descripción</th>
                 <th>Resumen</th>
                 <th>Empleado</th>
-                <th>Acciones</th>
+                {rolId !== '1' && <th>Acciones</th>}
               </tr>
             </thead>
             <tbody>
@@ -206,13 +210,15 @@ const Panel = () => {
                   <td>{request.description}</td>
                   <td>{request.summary}</td>
                   <td>{request.employee.name}</td>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faTrash}
-                      className="delete-icon"
-                      onClick={() => handleDeleteRequest(request.id)}
-                    />
-                  </td>
+                  {rolId !== '1' && (
+                    <td>
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        className="delete-icon"
+                        onClick={() => handleDeleteRequest(request.id)}
+                      />
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>
