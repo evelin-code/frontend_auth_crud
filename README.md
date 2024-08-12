@@ -19,6 +19,8 @@ Este proyecto es una aplicación web que permite la autenticación de usuarios y
 - NPM o Yarn
 
 ## Despliegue
-El proyecto ha sido desplegado utilizando
+El proyecto ha sido desplegado utilizando [Render](https://render.com/)
 
 ### URL Pública
+
+- **Frontend:** [https://frontend-auth-crud.onrender.com/](https://frontend-auth-crud.onrender.com/)
